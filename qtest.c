@@ -842,19 +842,19 @@ static bool do_reverseK(int argc, char *argv[])
     return !error_check();
 }
 
-static bool do_shuffle(int argc, char *argv[])
-{
-    if (!current || !current->q)
-        report(3, "Warning: Calling shuffle on null queue");
-    error_check();
-    if (q_size(current->q) < 2)
-        report(3, "Warning: Calling shuffle on single queue");
-    error_check();
-    if (exception_setup(true))
-        q_shuffle(current->q);
-    q_show(3);
-    return !error_check();
-}
+// static bool do_shuffle(int argc, char *argv[])
+// {
+//     if (!current || !current->q)
+//         report(3, "Warning: Calling shuffle on null queue");
+//     error_check();
+//     if (q_size(current->q) < 2)
+//         report(3, "Warning: Calling shuffle on single queue");
+//     error_check();
+//     if (exception_setup(true))
+//         q_shuffle(current->q);
+//     q_show(3);
+//     return !error_check();
+// }
 
 static bool do_merge(int argc, char *argv[])
 {

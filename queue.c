@@ -305,37 +305,37 @@ int q_merge(struct list_head *head, bool descend)
    後面的會愈來愈多，直到所有的節點都已經被抽到過，shuffle 就結束。
 */
 
-void swap(struct list_head *a, struct list_head *b)
-{
-    if (a == NULL || b == NULL || a == b)
-        return;
+// void swap(struct list_head *a, struct list_head *b)
+// {
+//     if (a == NULL || b == NULL || a == b)
+//         return;
 
-    struct list_head *a_prev = a->prev;
-    struct list_head *b_prev = b->prev;
+//     struct list_head *a_prev = a->prev;
+//     struct list_head *b_prev = b->prev;
 
-    if (a->prev != b)
-        list_move(b, a_prev);
-    list_move(a, b_prev);
-}
+//     if (a->prev != b)
+//         list_move(b, a_prev);
+//     list_move(a, b_prev);
+// }
 
-/* 有點問題 */
-int q_shuffle(struct list_head *head)
-{
-    if (!head || list_empty(head))
-        return 0;
+// /* 有點問題 */
+// int q_shuffle(struct list_head *head)
+// {
+//     if (!head || list_empty(head))
+//         return 0;
 
-    int len = q_size(head);
-    struct list_head *last = head->prev;
-    for (int i = 0; i < len; i++) {
-        int random = rand() % (len - i);
-        struct list_head *old, *new;
-        old = head->next;
-        for (int j = 0; j < random - 1; j++) {
-            old = old->next;
-        }
-        new = last;
-        swap(old, new);
-        last = last->prev;
-    }
-    return len;
-}
+//     int len = q_size(head);
+//     struct list_head *last = head->prev;
+//     for (int i = 0; i < len; i++) {
+//         int random = rand() % (len - i);
+//         struct list_head *old, *new;
+//         old = head->next;
+//         for (int j = 0; j < random - 1; j++) {
+//             old = old->next;
+//         }
+//         new = last;
+//         swap(old, new);
+//         last = last->prev;
+//     }
+//     return len;
+// }
